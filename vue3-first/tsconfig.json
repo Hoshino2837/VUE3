@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },  // 引用应用代码的配置
+    { "path": "./tsconfig.node.json" }  // 引用 Node 环境的配置
+  ]
+}
