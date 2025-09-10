@@ -31,24 +31,36 @@ import router from './router';
     </div> -->
     <!-- <slots/> -->
      <!-- <dynamic/> -->
-    <router-link to="/">主页</router-link>|
-    <router-link to="/about">about</router-link>|
-    <router-link to="/e">e</router-link>
+      <div class="select">
+    <router-link to="/" class="nav-link">主页</router-link>|
+    <router-link to="/about" class="nav-link">about</router-link>|
+    <router-link to="/e" class="nav-link">e</router-link>
     <router-view/>
+      </div>
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+/* 容器样式（直观看到导航区域） */
+.select {
+  padding: 20px;
+  background: #f9f9f9; /* 灰色背景 */
+  border: 2px solid #44ffcc ;
+  border-radius:20px; /* 红色边框，确认容器范围 */
+  color: #ffc0ff;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+/* 关键：用“父容器 + 标签 + 类名”的组合选择器，覆盖全局a样式 */
+.select a.nav-link {
+  color: aqua !important; /* 强制覆盖全局a的颜色 */
+  text-decoration: none !important; /* 强制去掉下划线 */
+  margin: 0 10px; /* 链接间距 */
+  font-size: 18px; /* 加大字体，方便观察 */
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+/* 激活状态样式（当前路由匹配时） */
+/* .select a.nav-link.router-link-exact-active {
+  color: #ffc0cb !important; /* 激活时粉色 */
+  /* font-weight: bold; /* 加粗突出 */
+
 </style>

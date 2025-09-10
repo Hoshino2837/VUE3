@@ -21,4 +21,16 @@ const router = createRouter({
     history:createWebHistory(),
     routes,
 });
+router.beforeEach((to,from,next)=>{
+    console.log(from,to);
+    if(to.name==="home"||to.name==="about"){
+    next();}
+    else if(0.5>Math.random()){
+        console.log()
+        next();
+    }
+    else{
+        next('/')
+    }
+})
 export default router;
