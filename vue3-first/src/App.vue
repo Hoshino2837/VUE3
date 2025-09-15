@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import router from './router';
+// import {ref} from 'vue';
 // import HelloWorld from './components/HelloWorld.vue';
 // import basic from './components/basic.vue';
 // import calculator from './components/calculator.vue';
@@ -17,7 +16,6 @@ import router from './router';
 </script>
 
 <template>
-  <div>
     <!-- <basic/>
   <button @click="isOpen=!isOpen">点击</button>
   <HelloWorld :msg="isOpen?'Vite + Vue':'hhhhh'" :age=1 />
@@ -31,36 +29,35 @@ import router from './router';
     </div> -->
     <!-- <slots/> -->
      <!-- <dynamic/> -->
-      <div class="select">
-    <router-link to="/" class="nav-link">主页</router-link>|
-    <router-link to="/about" class="nav-link">about</router-link>|
-    <router-link to="/e" class="nav-link">e</router-link>
-    <router-view/>
-      </div>
+
+  <div id="app">
+    <!-- 导航栏 -->
+    <div class="nav-container">
+      <router-link to="/" class="nav-link">主页</router-link>|
+      <router-link to="/about" class="nav-link">about</router-link>|
+      <router-link to="/e" class="nav-link">e</router-link>
+    </div>
+    <!-- 路由页面内容 -->
+    <router-view class="router-view" />
+    <!-- 路由信息会被 JS 动态插入到 #app 末尾 -->
   </div>
 </template>
 
 <style>
-/* 容器样式（直观看到导航区域） */
-.select {
+#app {
+  display: flex;        /* 开启 Flex 布局 */
+  flex-direction: column; /* 子元素「垂直排列」 */
+  align-items: flex-start; /* 子元素「靠左对齐」 */
   padding: 20px;
-  background: #f9f9f9; /* 灰色背景 */
-  border: 2px solid #44ffcc ;
-  border-radius:20px; /* 红色边框，确认容器范围 */
-  color: #ffc0ff;
 }
 
-/* 关键：用“父容器 + 标签 + 类名”的组合选择器，覆盖全局a样式 */
-.select a.nav-link {
-  color: aqua !important; /* 强制覆盖全局a的颜色 */
-  text-decoration: none !important; /* 强制去掉下划线 */
-  margin: 0 10px; /* 链接间距 */
-  font-size: 18px; /* 加大字体，方便观察 */
+.nav-container {
+  margin-bottom: 10px; /* 与下方路由视图隔开 */
 }
 
-/* 激活状态样式（当前路由匹配时） */
-/* .select a.nav-link.router-link-exact-active {
-  color: #ffc0cb !important; /* 激活时粉色 */
-  /* font-weight: bold; /* 加粗突出 */
-
+.router-view {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px dashed #ccc;
+}
 </style>
