@@ -2,8 +2,10 @@
 import About from '../pages/about.vue';
 import Home from "../pages/home.vue";
 import e from "../pages/e.vue";
-import test from '../pages/test.vue'
+import test from "../pages/test.vue"
+import flower from "../pages/flower.vue"
 import App from "../App.vue";
+import Component from "../components/component.vue";
 // import {h} from 'vue';
 // import Component from "../components/component.vue";
 const routes =[
@@ -23,7 +25,13 @@ const routes =[
     path:'/test',
     name:'test',
     component:test
-  }];
+  },
+  {
+    path:'/flower',
+    name:"flower",
+    component:flower
+   }
+];
 const router = createRouter({
     history:createWebHistory(),
     routes,

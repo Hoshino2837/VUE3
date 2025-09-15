@@ -13,6 +13,9 @@
 // let change = ()=>{count.value+=1}
 // import slots from './components/slotWrapper.vue';
 // import dynamic from './components/dynamic.vue';
+import { useRouter,useRoute } from 'vue-router';
+const router = useRouter();
+const route =useRoute();
 </script>
 
 <template>
@@ -37,6 +40,8 @@
       <router-link to="/about" class="nav-link">about</router-link>|
       <router-link to="/e" class="nav-link">e</router-link>
     </div>
+    <!-- query 传入参数，这里是路径 -->
+      <button @click="router.push({path:'/flower',query:{name:'不败世界与终焉之花'}})" id="button">进入flower</button>
     <!-- 路由页面内容 -->
     <router-view class="router-view" />
     <!-- 路由信息会被 JS 动态插入到 #app 末尾 -->
@@ -44,20 +49,13 @@
 </template>
 
 <style>
-#app {
-  display: flex;        /* 开启 Flex 布局 */
-  flex-direction: column; /* 子元素「垂直排列」 */
-  align-items: flex-start; /* 子元素「靠左对齐」 */
-  padding: 20px;
+#button{
+  background-color: #86d4ef;
+  color: #f099a8;
+  border : solid 2px #bbb;
+  border-radius:18px;
 }
-
-.nav-container {
-  margin-bottom: 10px; /* 与下方路由视图隔开 */
-}
-
-.router-view {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px dashed #ccc;
+body{
+   background-image: url('https://s1.aigei.com/prevfiles/4c67c043056d45f7b295b596515c4a3f.jpg?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:wDQRxyQSkbBgEoKZK430FQND2uA=');
 }
 </style>
